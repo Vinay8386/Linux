@@ -1,0 +1,13 @@
+=> Basic Computer Terminology and facts:
+
+     Storage -----> HDD/SSD ----->Partition ------> File-System
+    -> so if emtire storage devices is a box
+    -> Partition is a seperate part of the box
+    -> And file system will be specific method in which you store item in that partition in that box.
+    -> A drive can have one two three or more partition
+    
+    -> Window uses the fuile system that is proprietary, it's called NTFS
+    -> In linux you would prefer other such as EXT4 or BTRFS
+    -> USB drive partitions are usually in the FAT32 file system.
+
+    
