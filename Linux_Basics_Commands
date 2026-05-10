@@ -1,0 +1,76 @@
+=> In Window you can use the "Windows Subsystem for Linux" (WSL) to run a Linux environment directly on Windows. This allows you to use Linux command-line tools and applications without needing a virtual machine or dual-boot setup.
+To set up WSL on Windows, follow these steps:
+1. Open PowerShell as an administrator and run the following command to enable WSL:
+   ```powershell
+   wsl --install
+   ```
+2. Restart your computer when prompted.
+3. After restarting, open the Microsoft Store and search for a Linux distribution (e.g., Ubuntu, Debian, etc.) and install it.
+  -> To install a specific Linux distribution like ubantu, you can use the following command in PowerShell:
+   ```powershell
+   wsl --install -d Ubuntu
+   ```
+4. Once the installation is complete, launch the Linux distribution from the Start menu and follow the on-screen instructions to set up your Linux user account.
+5. After the setup is complete, you can start using the Linux terminal to run commands and access the Linux file system.
+You can also access your Windows files from the Linux terminal by navigating to the `/mnt` directory, where your Windows drives are mounted (e.g., `/mnt/c` for the C: drive).
+
+=> Basic Linux commands:
+   -> Change directory: `cd` (For example, you want to work on F drive then you can use `cd /mnt/f`)
+    -> List files and directories: `ls`
+    -> Create a new directory: `mkdir <directory_name>`
+    -> Remove a file: `rm <file_name>`
+    -> Remove a directory: `rmdir <directory_name>`(for empty directories) or `rm -r <directory_name>` (for non-empty directories) 
+    -> Copy a file: `cp <source_file> <destination>`
+    -> Move or rename a file: `mv <source_file> <destination>`
+    -> Display the contents of a file: `cat <file_name>`
+    -> Display the current working directory: `pwd`
+    
+    -> To work with different different software packages, you can use the package manager specific to your Linux distribution. 
+        -> For example, on Ubuntu:
+            -> Install a package: `sudo apt install <package_name>`
+            -> Update package lists: `sudo apt update`
+            -> Upgrade installed packages: `sudo apt upgrade`
+            -> Remove a package: `sudo apt remove <package_name>`
+            -> Search for a package: `apt search <package_name>`
+            -> List installed packages: `apt list --installed`
+            -> Check for package information: `apt show <package_name>`
+            -> Clean up unused packages: `sudo apt autoremove`
+            -> Clean up package cache: `sudo apt clean`
+            -> Check for package dependencies: `apt depends <package_name>`
+            -> Check for reverse dependencies: `apt rdepends <package_name>`
+            -> Check for package files: `dpkg -L <package_name>`
+            -> Check for package status: `dpkg -s <package_name>`
+            -> Check for package version: `dpkg -l <package_name>`
+            -> Check for package architecture: `dpkg --print-architecture`
+            -> Check for package source: `dpkg --print-foreign-architectures`
+            -> Check for package configuration files: `dpkg --get-selections | grep <package_name>`
+            -> Check for package logs: `cat /var/log/dpkg.log | grep <package_name>`
+
+        -> Keyword used in commands:
+            -> `sudo`: Run a command with administrator privileges.
+            -> `apt`: It means "Advanced Package Tool". Ubuntu uses the APT package manager to:
+                -> Install software
+                -> Update Software
+                -> Remove software
+                -> Manage dependencies
+                
+                -> Ubuntu downloads software from repositories(Official software storage servers maintained by Ubuntu).
+                    -> If latest version of software is NOT available in APT repositories. we can:
+                        -> Add external repositories (PPA)
+                        -> Download manually from official website
+                        -> Use tools like SDKMAN, Snap, Docker etc.
+                        -> Install using `.deb`, `.tar.gz`, or zip packages
+                    -> Example
+                        -> sudo apt install maven
+                        -> sudo apt install openjdk-21-jdk
+                        
+            -> `<package_name>`: The name of the package you want to manage.
+            -> `<source_file>`: The file you want to copy or move.
+            -> `<destination>`: The location where you want to copy or move the file.
+            -> `<directory_name>`: The name of the directory you want to create or remove.
+            -> `<file_name>`: The name of the file you want to display or remove.
+
+    -> Check disk usage: `df -h`
+    -> Check memory usage: `free -h`
+    -> Check running processes: `ps aux`
+    -> Kill a process: `kill <process_id>`
