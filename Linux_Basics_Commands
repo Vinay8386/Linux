@@ -45,6 +45,9 @@ You can also access your Windows files from the Linux terminal by navigating to 
             -> Check for package source: `dpkg --print-foreign-architectures`
             -> Check for package configuration files: `dpkg --get-selections | grep <package_name>`
             -> Check for package logs: `cat /var/log/dpkg.log | grep <package_name>`
+            -> Install file formatter: sudo apt install clang-format -y
+            -> Format a particular file: clang-format -i <File-name>
+            -> Delete all empty file from a particular directory: find . -type f -empty -delete
 
         -> Keyword used in commands:
             -> `sudo`: Run a command with administrator privileges.
@@ -63,12 +66,37 @@ You can also access your Windows files from the Linux terminal by navigating to 
                     -> Example
                         -> sudo apt install maven
                         -> sudo apt install openjdk-21-jdk
-                        
+            
+            -> `-i` : in-place editing. Command line directly modify original file. Example "clang-format -i Receiver.java"
+            -> `-y` : Automatically answer YES to prompts. Prevents Ubuntu from asking confirmation repeatedly. Example: "sudo apt install maven -y"
+            -> `>` : Replace entire content of file (cat > Receiver.java)
+            -> `>>` : Append the new content(cat >> Receiver.java)
             -> `<package_name>`: The name of the package you want to manage.
             -> `<source_file>`: The file you want to copy or move.
             -> `<destination>`: The location where you want to copy or move the file.
             -> `<directory_name>`: The name of the directory you want to create or remove.
             -> `<file_name>`: The name of the file you want to display or remove.
+        
+        -> Commonly used linux flag:
+            -> `-r`: Recursive operation.
+                -> Used when operation should apply to all files/subfolders inside a directory.
+                -> Example: rm -r projects
+
+            -> `-f`: Force operation without confirmation.
+                -> Performs action immediately even if warnings/errors occur.
+                -> Example: rm -f test.txt
+
+            -> `-a`: Show all files including hidden files.
+                -> Hidden files in Linux usually start with `.` (dot).
+                -> Example: ls -a
+
+            -> `-l`: Long detailed listing.
+                -> Displays detailed information like permissions, owner, size, and date.
+                -> Example: ls -l
+
+            -> `-h`: Human readable format.
+                -> Shows file sizes in readable format like KB, MB, GB instead of raw bytes.
+                -> Example: ls -lh
 
     -> Check disk usage: `df -h`
     -> Check memory usage: `free -h`
