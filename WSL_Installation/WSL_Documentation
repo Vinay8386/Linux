@@ -1,0 +1,122 @@
+=> Install WSL: https://learn.microsoft.com/en-us/windows/wsl/install
+
+=> What happens when we run: wsl --install
+
+    -> Step 1: Windows checks whether CPU virtualization support is available.
+       Example:
+       - Intel VT-x
+       - AMD-V
+
+    -> Step 2: Windows enables the "Windows Subsystem for Linux (WSL)" feature.
+
+    -> Step 3: Windows enables the "Virtual Machine Platform" feature.
+
+    -> Step 4: Windows enables and starts the Microsoft Hypervisor.
+       Note:
+       - Hypervisor = Software
+       - Intel VT-x / AMD-V = Hardware support used by Hypervisor
+
+    -> Step 5: Windows downloads and installs the Linux Kernel required by WSL2.
+
+    -> Step 6: Windows downloads and installs a Linux Distribution.
+       Default:
+       - Ubuntu
+
+    -> Step 7: Windows configures WSL2 as the default WSL version.
+
+    -> Step 8: Windows asks for a restart (if required).
+
+    -> Step 9: After restart, Hypervisor creates a lightweight WSL2 Virtual Machine.
+
+    -> Step 10: Linux Kernel boots inside the WSL2 Virtual Machine.
+
+    -> Step 11: Ubuntu User Space starts on top of the Linux Kernel.
+
+=> Initial Architecture
+
+    Hardware
+        ↓
+    Intel VT-x / AMD-V
+        ↓
+    Microsoft Hypervisor
+        ↓
+    WSL2 Lightweight VM
+        ↓
+    Linux Kernel
+        ↓
+    Ubuntu User Space
+        ↓
+    Bash / Java / Python / Applications
+
+=> If later we install another Linux Distribution (Debian/Kali/openSUSE)
+
+    Hardware
+        ↓
+    Microsoft Hypervisor
+        ↓
+    WSL2 Lightweight VM
+        ↓
+    Shared Linux Kernel
+        ├── Ubuntu User Space
+        ├── Debian User Space
+        ├── Kali User Space
+        └── openSUSE User Space
+
+    Note:
+    - All distributions share the same Linux Kernel.
+    - Each distribution has its own filesystem, packages and applications.
+    - New Kernel is NOT downloaded for every distribution.
+
+=> If later we install Docker Desktop
+
+    Hardware
+        ↓
+    Microsoft Hypervisor
+        ↓
+    WSL2 Lightweight VM
+        ↓
+    Linux Kernel
+        ↓
+    Docker Engine
+        ↓
+    Containers
+
+    Example:
+    - Nginx Container
+    - MySQL Container
+    - Spring Boot Container
+    - Redis Container
+
+=> Docker Architecture with Ubuntu
+
+    Hardware
+        ↓
+    Microsoft Hypervisor
+        ↓
+    WSL2 Lightweight VM
+        ↓
+    Linux Kernel
+        ├── Ubuntu User Space
+        │      └── Bash / Java / Python
+        │
+        └── Docker Engine
+               ├── Nginx Container
+               ├── MySQL Container
+               ├── Redis Container
+               └── Spring Boot Container
+
+=> Important Notes
+
+    -> Ubuntu is NOT a separate VM.
+
+    -> Ubuntu does NOT have its own Kernel.
+
+    -> Ubuntu uses the Linux Kernel downloaded by WSL2.
+
+    -> Debian, Kali, Ubuntu, openSUSE all share the same Linux Kernel.
+
+    -> Docker Containers also use the same Linux Kernel.
+
+    -> Hypervisor creates the WSL2 VM only once.
+
+    -> Linux Distributions and Docker run on top of that WSL2 environment.
