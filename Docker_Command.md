@@ -2,6 +2,37 @@
 
 > These notes cover the commonly required Docker commands from installation to daily usage, networking, volumes, Dockerfiles, Docker Compose, troubleshooting, and cleanup.
 
+# Table of Contents
+
+1. **Docker Installation & Setup** — Install Docker on Ubuntu, start the Docker service, configure permissions, and verify the installation.
+
+2. **Docker Images** — Pull, list, inspect, tag, remove, save, and load Docker images.
+
+3. **Docker Containers** — Create and run containers, list containers, execute commands inside containers, and copy files.
+
+4. **Docker Container Lifecycle** — Start, stop, restart, pause, unpause, kill, and remove containers.
+
+5. **Docker Logs & Monitoring** — View container logs, processes, resource usage, port mappings, and detailed container information.
+
+6. **Dockerfile & Image Building** — Create Dockerfiles and build custom Docker images for applications.
+
+7. **Docker Volumes & Storage** — Create and manage volumes, persist container data, and use bind mounts.
+
+8. **Docker Networking** — Create and manage Docker networks and enable communication between containers.
+
+9. **Docker Compose** — Create and manage multi-container applications using Docker Compose.
+
+10. **Docker Registry / Docker Hub** — Log in to a registry, tag images, push images, pull images, and log out.
+
+11. **Docker Troubleshooting** — Diagnose Docker service, container, networking, logging, and resource-related problems.
+
+12. **Docker Cleanup** — Remove unused containers, images, networks, volumes, and other Docker resources.
+
+13. **Docker Quick Reference** — Quickly find commonly used Docker commands and common command workflows.
+
+14. **Docker on Cloud VM** — Understand Docker port publishing and external access through cloud firewall or Security Group rules.
+
+15. **Linux Distribution Compatibility** — Identify which Docker commands remain the same and which installation/system commands change when using a Linux distribution other than Ubuntu.
 ---
 
 # 1. Check Linux System
